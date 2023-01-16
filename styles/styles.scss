@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Questrial&display=swap');
+@mixin containers($width){
+    width: $width;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+}
+@mixin navMenu($justify,$float){
+    list-style: none;
+    float: $float;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+}
+
+$color:#888;
+$color2: whitesmoke;
+$bg-color-menu: #FF5672;
+$font-family-1: 'Montserrat', sans-serif;
+$font-family-2: 'Questrial', sans-serif;
+$widthGrid: 4/12*100%;
+
+body{
+    font-family: $font-family-1;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: start;
+    text-size-adjust: 100%;
+}
+
+.layout{
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    height: 56px;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.container{
+    @include containers(90%);
+    
+}
+.container-fluid{
+    @include containers(100%);
+}
+
+.container-grid{
+    @include containers(70%);
+    height: 230em;
+    img{
+      margin: 2%;
+    }
+    img:hover{
+      width: 98%;
+    }
+}
+
+.nav{
+    @include navMenu(flex-end,right);
+}
+
+.nav .icon{
+  display: none;
+}
+
+a:hover{
+    color: $color2;
+    background-color: $bg-color-menu;
+}
+
+a{
+    color: $color;
+    text-decoration: none;
+    padding: 0.5em 1em; 
+}
+
+.logo:hover{
+  background-color: none;
+}
+
+
+svg{
+    width: 16px;
+    height: 16px;
+    padding: 0.5em 1em;
+    margin-top: -0.5em;
+    fill: $bg-color-menu;
+}
+
+#banner{
+    text-align: center;
+    display: flex;
+    color: $color2;
+    background-color: $bg-color-menu;
+    height: 30em;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    h1{
+      letter-spacing: 7px;
+    }
+    p{
+      letter-spacing: 1px;
+    }
+}
+
+.btn{
+    font-family: $font-family-2;
+    background-color: $color2;
+    color: $bg-color-menu;
+    padding: 1em 3em;
+    font-size: 10px;
+    border: 1px solid $color2;
+
+}
+.btn:hover{
+    background-color: $bg-color-menu;
+    color: $color2;
+    border: 1px solid $color2;
+}
+
+#iconGrid{
+    display: flex;
+    justify-content: center;
+}
+
+.navTwo{
+    @include navMenu(center,none);
+    
+}
+
+footer{
+    padding: 10px;
+    text-align: center;
+    color: lightgray;
+    float: left;
+    svg{
+        fill: lightgray !important;
+    }
+}
+
+.colgrid{
+  width: $widthGrid;
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+}
+
+@media screen and (max-width: 600px) {
+  .nav a:not(:first-child) {display: none;}
+  .nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav.responsive {position: relative;}
+  .nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
